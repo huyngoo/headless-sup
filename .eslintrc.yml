@@ -1,0 +1,79 @@
+---
+root: true
+
+parser: babel-eslint
+extends:
+  # http://eslint.org/docs/user-guide/configuring#using-eslintrecommended
+  - eslint:recommended
+  # https://www.npmjs.com/package/eslint-plugin-protractor
+  - plugin:protractor/recommended
+  # https://www.npmjs.com/package/eslint-config-airbnb-base
+  - airbnb-base
+
+plugins:
+  - import
+  - async-await
+  - protractor
+
+env:
+  es6: true
+  browser: true
+  node: true
+  jasmine: true
+  protractor: true
+
+parserOptions:
+  ecmaVersion: 2017
+  sourceType: module
+
+rules:
+  ### Different from airbnb config
+
+  ### Styling ###
+
+  # I prefer new line before error
+  # http://eslint.org/docs/rules/newline-before-return
+  newline-before-return: error # airbnb default: off
+
+  # I prefer double quotes
+  # http://eslint.org/docs/rules/quotes
+  quotes: [error, double] # airbnb default: ['error', 'single', { avoidEscape: true }]
+
+  ### Variables ###
+
+  # Functions and classes can be used before declaration
+  # http://eslint.org/docs/rules/no-use-before-define
+  no-use-before-define: # airbnb default: error
+    - error
+    -
+      functions: false
+      classes: false
+
+  ### ES6 ###
+  # enforce usage of spacing in template strings
+  # http://eslint.org/docs/rules/template-curly-spacing
+  template-curly-spacing: [error, never] # airbnb default: error
+
+  ### Best practices ###
+  # require or disallow Yoda conditions
+  yoda: [error, never, { exceptRange: true }]
+
+  # I prefer culry braces all the time
+  curly: [error, all] # airbnb default: [error, multi-line]
+
+  ### Import ###
+  import/prefer-default-export: 0
+
+  ### Errors ###
+  no-console: warn
+  no-debugger: warn
+
+  ### Protractor ###
+  protractor/no-browser-pause: warn
+  protractor/no-absolute-url: 0
+  protractor/no-repetitive-selectors: warn
+
+  ### Async await ###
+  async-await/space-after-async: error
+  async-await/space-after-await: error
+

@@ -1,0 +1,71 @@
+{
+  "name": "eslint-plugin-protractor",
+  "description": "ESLint rules for Protractor",
+  "version": "1.40.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "pretest": "standard && eslint .",
+    "test": "mocha",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report html -- -R spec",
+    "watch": "mocha --watch",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "before"
+    ]
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin",
+    "protractor"
+  ],
+  "author": "Alexander Afanasyev <afanasieffav@gmail.com>",
+  "contributors": [
+    "Darin Kadrioski <darin.kadrioski@teamaol.com>",
+    "David Raynes <rayners@gmail.com>",
+    "Raul Gallegos <raul.ogh@gmail.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alecxe/eslint-plugin-protractor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alecxe/eslint-plugin-protractor/issues"
+  },
+  "homepage": "https://github.com/alecxe/eslint-plugin-protractor",
+  "peerDependencies": {
+    "eslint": ">=2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "commitizen": "^2.8.1",
+    "coveralls": "^2.11.9",
+    "cz-conventional-changelog": "^1.1.6",
+    "eslint": ">=2.0.0",
+    "install": "^0.8.1",
+    "istanbul": "^0.4.3",
+    "mocha": "^3.0.0",
+    "npm": "^3.10.5",
+    "semantic-release": "^4.3.5",
+    "standard": "^7.1.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "css-selector-parser": "^1.1.0",
+    "multimatch": "^2.1.0"
+  }
+}
